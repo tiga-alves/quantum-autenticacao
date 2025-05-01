@@ -6,6 +6,20 @@ import uuid
 st.set_page_config(page_title="Validação de Identidade", layout="centered")
 st.title("🧠 Validação de Identidade com AWS")
 
+# Adicionar texto explicativo no início
+st.markdown("""
+    ### 📋 Como funciona:
+    Este sistema realiza a validação de identidade em três etapas:
+    1. **Comparação facial** - Verifica se a selfie corresponde à foto do documento
+    2. **Extração de dados** - Obtém informações do documento como nome e CPF
+    3. **Validação de residência** - Confirma se o nome no documento aparece no comprovante
+    
+    ### 📝 Instruções:
+    - Envie uma selfie clara, com boa iluminação
+    - Envie um documento oficial com foto (RG, CNH, etc.)
+    - Envie um comprovante de residência em formato PDF
+""")
+
 st.markdown("""
     <style>
     .doc-info {
@@ -17,7 +31,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
+# Seção de upload com instruções específicas
+st.subheader("📤 Upload de Documentos")
 selfie_file = st.file_uploader("📸 Envie sua Selfie", type=["jpg", "jpeg", "png"])
 doc_file = st.file_uploader("🪪 Envie o Documento com Foto", type=["jpg", "jpeg", "png"])
 comprovante_file = st.file_uploader("📄 Envie o Comprovante de Residência", type=["pdf"])
@@ -158,3 +173,5 @@ if selfie_file and doc_file and comprovante_file:
                     
         else:
             st.error("❌ Rostos não correspondem!")
+else:
+    st.info("👆 Por favor, envie todos os documentos solicitados para iniciar a validação.")
