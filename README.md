@@ -27,8 +27,8 @@ Este é um sistema de validação de identidade que utiliza serviços da AWS (Am
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/validacao-identidade-aws.git
-cd validacao-identidade-aws
+git clone https://github.com/seu-usuario/quantum-autenticacao.git
+cd quantum-autenticacao
 ```
 
 2. Instale as dependências:
@@ -72,9 +72,9 @@ streamlit run app.py
 - Necessita de boa qualidade nas imagens para melhor precisão
 
 ## 💰 Custos
-Este projeto utiliza serviços AWS que podem gerar custos:
-- AWS Rekognition: Cobrado por imagem analisada
-- AWS Textract: Cobrado por página processada
+Este projeto utiliza serviços AWS Free Tier:
+- AWS Rekognition
+- AWS Textract
 Consulte a [documentação AWS](https://aws.amazon.com/pricing/) para mais detalhes sobre preços.
 
 ## 🤝 Contribuindo
@@ -88,7 +88,5 @@ Contribuições são bem-vindas! Para contribuir:
 ## 📄 Licença
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## 📧 Contato
-Seu Nome - [@seutwitter](https://twitter.com/seutwitter) - email@exemplo.com
 
-Link do Projeto: [https://github.com/seu-usuario/validacao-identidade-aws](https://github.com/seu-usuario/validacao-identidade-aws)
+Link do Projeto: [https://github.com/tiga-alves/quantum-autenticacao](https://github.com/tiga-alves/quantum-autenticacao)

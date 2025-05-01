@@ -1,14 +1,11 @@
 import streamlit as st
 import boto3
-import io
-import re
 from difflib import SequenceMatcher
-import uuid  # Adicionar esta importação no topo do arquivo
+import uuid 
 
 st.set_page_config(page_title="Validação de Identidade", layout="centered")
 st.title("🧠 Validação de Identidade com AWS")
 
-# Add custom CSS no início para garantir que está disponível
 st.markdown("""
     <style>
     .doc-info {
@@ -20,9 +17,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-def similar(a, b):
-    # Função para comparar similaridade entre strings
-    return SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
 selfie_file = st.file_uploader("📸 Envie sua Selfie", type=["jpg", "jpeg", "png"])
 doc_file = st.file_uploader("🪪 Envie o Documento com Foto", type=["jpg", "jpeg", "png"])
@@ -57,10 +51,10 @@ if selfie_file and doc_file and comprovante_file:
                 response = textract.detect_document_text(Document={'Bytes': doc_bytes})
                 st.subheader("📝 Informações do Documento:")
                 
-                # Extract text lines do documento
+                # Extrair as linhas de texto do documento
                 lines = [block['Text'] for block in response['Blocks'] if block['BlockType'] == 'LINE']
                 
-                # Find nome and CPF
+                # Procure o nome e CPF
                 nome_doc = ""
                 cpf = ""
                 
@@ -70,7 +64,7 @@ if selfie_file and doc_file and comprovante_file:
                     elif line.upper() == "CPF" and i + 1 < len(lines):
                         cpf = lines[i + 1]
                 
-                # Display the information in the styled container
+                # Exibir as informações em um contêiner estilizado
                 container_html = f"""
                     <div class="doc-info">
                         <p><strong>Nome:</strong> {nome_doc}</p>
@@ -143,7 +137,7 @@ if selfie_file and doc_file and comprovante_file:
                         # Verificar se o nome do documento está presente no comprovante
                         nome_encontrado = nome_doc.strip() in texto_completo
 
-                        # Display the information in the styled container
+                        # Exibir as informações em um contêiner estilizado
                         container_html = f"""
                             <div class="doc-info">
                                 <p><strong>Endereço:</strong> {endereco}</p>
