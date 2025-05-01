@@ -1,6 +1,5 @@
 import streamlit as st
 import boto3
-from difflib import SequenceMatcher
 import uuid 
 
 st.set_page_config(page_title="Validação de Identidade", layout="centered")
