@@ -75,6 +75,7 @@ streamlit run app.py
 Este projeto utiliza serviços AWS Free Tier:
 - AWS Rekognition
 - AWS Textract
+
 Consulte a [documentação AWS](https://aws.amazon.com/pricing/) para mais detalhes sobre preços.
 
 ## 🤝 Contribuindo
